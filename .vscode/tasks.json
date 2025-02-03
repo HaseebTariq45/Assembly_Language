@@ -1,0 +1,41 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build ASM",
+            "type": "shell",
+            "command": "ml",
+            "args": [
+                "/c",
+                "/Zd",
+                "/coff",
+                "/I\"C:\\masm32\\include\"",
+                "${file}"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Link ASM",
+            "type": "shell",
+            "command": "link",
+            "args": [
+                "${fileBasenameNoExtension}.obj",
+                "/SUBSYSTEM:CONSOLE",
+                "/LIBPATH:C:\\masm32\\lib",
+                "kernel32.lib"
+            ],
+            "dependsOn": "Build ASM"
+        },
+        {
+            "label": "Run ASM",
+            "type": "shell",
+            "command": "${workspaceFolder}\\${fileBasenameNoExtension}.exe",
+            "group": "build",
+            "dependsOn": "Link ASM",
+            "problemMatcher": []
+        }
+    ]
+}

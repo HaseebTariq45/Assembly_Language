@@ -1,0 +1,14 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Build & Run ASM",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}\\${fileBasenameNoExtension}.exe",
+            "cwd": "${workspaceFolder}",
+            "externalConsole": true,
+            "preLaunchTask": "Run ASM"
+        }
+    ]
+}
